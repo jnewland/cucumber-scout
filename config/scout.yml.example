@@ -1,5 +1,4 @@
 account: 
 email: 
 password: 
-hostname: # a server with the 'server overview' plugin installed
-plugin: Server Overview
+hostname: # a server with the 'server overview' and 'passenger' plugins installed

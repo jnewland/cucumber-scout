@@ -1,6 +1,42 @@
 = cucumber-scout
 
-TODO
+Cucumber steps for verifying Scout[http://scoutapp.com] metrics
+
+== Usage
+
+Install the gem:
+
+    gem install cucumber-scout
+
+In your <tt>features/support/env.rb</tt>:
+
+    require 'cucumber/scout/steps'
+
+You can now write crazy features like this:
+
+    Feature: Response Time
+      As a impatient user
+      Our app should be super fast
+
+      Background:
+        Given my Scout account name is 'railsmachine'
+        And my Scout email and password are 'jesse@railsmachine.com' and 'sekret'
+
+      Scenario: Passenger Queue
+        When I get the metrics from the 'Passenger' plugin on 'example.com' 
+        Then the 'passenger_queue_depth' should be 0
+
+      Scenario: New Users are continuously being created
+        When I get the metrics from the 'Business Metrics' plugin on 'example.com' 
+        Then 'new_users' should be greater than 0
+
+      Scenatiro: CPU usage is low
+        When I get the metrics from the 'Server Overview' plugin on 'example.com'
+        Then 'cpu_last_minute' should be less than 1
+
+== Retrieving descriptors names from Scout
+
+    https://scoutapp.com/ACCOUNT_NAME/descriptors.xml?host=HOSTNAME
 
 == Available Operators
 
@@ -11,9 +47,12 @@ TODO
 
 == Running Cucumber Features
 
-Drop your license key into config/scout.yml, then run 'em like so:
+Drop your account info into config/scout.yml, then run 'em like so:
 
     cucumber features
+
+The server you configure should have the Server Overview and Passenger Plugins
+installed. I'll add fakeweb later, but for now, that's how it works.
 
 == Note on Patches/Pull Requests
 

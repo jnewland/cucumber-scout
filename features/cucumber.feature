@@ -10,17 +10,17 @@ Feature: Setup
     Then the Scout API is responsive
 
   Scenario: Less than
-    Given I load the sample server's metrics
-    Then 'cpu_last_minute' should be less than 1
+    When I get the metrics from the 'Server Overview' plugin on the test server
+    Then 'cpu_last_minute' should be less than 100
   
   Scenario: Equal
-    Given I load the sample server's metrics
-    Then 'disk_size' should be 22
+    When I get the metrics from the 'Passenger' plugin on the test server
+    Then 'passenger_queue_depth' should be 0
   
   Scenario: Greater than
-    Given I load the sample server's metrics
+    When I get the metrics from the 'Server Overview' plugin on the test server
     Then 'cpu_last_minute' should be greater than 0.001
   
   Scenario: Not equal
-    Given I load the sample server's metrics
+    When I get the metrics from the 'Server Overview' plugin on the test server
     Then 'cpu_last_minute' should not equal 100
