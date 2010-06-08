@@ -1,0 +1,5 @@
+account: 
+email: 
+password: 
+hostname: # a server with the 'server overview' plugin installed
+plugin: Server Overview
