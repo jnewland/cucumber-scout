@@ -27,4 +27,4 @@ module Cucumber
 end
 
 World(Cucumber::Scout)
-require 'cucumber/nagios/steps'
+require 'cucumber/scout/steps'

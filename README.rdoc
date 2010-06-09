@@ -10,7 +10,7 @@ Install the gem:
 
 In your <tt>features/support/env.rb</tt>:
 
-    require 'cucumber/scout/steps'
+    require 'cucumber/scout'
 
 You can now write crazy features like this:
 

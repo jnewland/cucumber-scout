@@ -1,1 +1,1 @@
-require File.join(Dir.pwd, 'lib', 'cucumber', 'scout', 'steps.rb')
+require File.join(Dir.pwd, 'lib', 'cucumber', 'scout.rb')
